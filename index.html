@@ -36,7 +36,7 @@
     <header class="sticky top-0 z-40 bg-dark/85 backdrop-blur-md border-b border-neutral-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Logo & Marca -->
-            <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="showCatalog()">
                 <div class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold text-xl tracking-tighter shadow-lg shadow-white/10">
                     B
                 </div>
@@ -54,113 +54,161 @@
         </div>
     </header>
 
-    <!-- SECCIÓN HERO -->
-    <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
-            Tecnología para tu día a día
-        </h1>
-        <p class="text-neutral-400 max-w-xl mx-auto text-sm sm:text-base mb-6">
-            Lujo. Tranquilidad. Minimalismo. Envíos a todo Ecuador 🇪🇨 · Pagas seguro al recibir 💳
-        </p>
-        <div class="inline-flex items-center space-x-2 text-xs font-medium bg-neutral-900 border border-neutral-800 px-4 py-2 rounded-full text-neutral-300">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Stock inmediato disponible</span>
+    <!-- VISTA PRINCIPAL: CATÁLOGO -->
+    <div id="catalog-view" class="flex-grow flex flex-col">
+        <!-- SECCIÓN HERO -->
+        <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+            <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+                Tecnología para tu día a día
+            </h1>
+            <p class="text-neutral-400 max-w-xl mx-auto text-sm sm:text-base mb-6">
+                Lujo. Tranquilidad. Minimalismo. Envíos a todo Ecuador 🇪🇨 · Pagas seguro al recibir 💳
+            </p>
+            <div class="inline-flex items-center space-x-2 text-xs font-medium bg-neutral-900 border border-neutral-800 px-4 py-2 rounded-full text-neutral-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Stock inmediato disponible</span>
+            </div>
+        </section>
+
+        <!-- CATÁLOGO DE PRODUCTOS -->
+        <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Producto 1 -->
+                <div onclick="showProductDetail(1)" class="bg-cardDark border border-neutral-800 rounded-2xl overflow-hidden flex flex-col group hover:border-neutral-700 transition duration-300 cursor-pointer">
+                    <div class="relative bg-neutral-900 p-6 flex items-center justify-center h-64 overflow-hidden">
+                        <span class="absolute top-4 left-4 bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20 z-10">
+                            ⭐ Premium
+                        </span>
+                        <img src="airpodsbyte.png" alt="Audífonos Inalámbricos Premium" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs text-neutral-400 mb-2">
+                                <span>Audio</span>
+                                <span class="text-emerald-400 font-medium">Stock: 345</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-4">Audífonos Inalámbricos Premium</h3>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-neutral-800/60" onclick="event.stopPropagation()">
+                            <div>
+                                <span class="text-xs text-neutral-400 block">Precio</span>
+                                <span class="text-xl font-extrabold text-white">$28,00</span>
+                            </div>
+                            <button onclick="addToCart('Audífonos Inalámbricos Premium', 28.00)" class="bg-white text-black hover:bg-neutral-200 transition font-semibold px-4 py-2.5 rounded-xl text-sm flex items-center space-x-2">
+                                <i class="fa-solid fa-plus"></i>
+                               <span>Agregar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div onclick="showProductDetail(2)" class="bg-cardDark border border-neutral-800 rounded-2xl overflow-hidden flex flex-col group hover:border-neutral-700 transition duration-300 cursor-pointer">
+                    <div class="relative bg-neutral-900 p-6 flex items-center justify-center h-64 overflow-hidden text-neutral-500">
+                        <span class="absolute top-4 left-4 bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20 z-10">
+                            ⭐ Premium
+                        </span>
+                        <div class="text-center">
+                            <i class="fa-solid fa-image text-3xl mb-2"></i>
+                            <p class="text-xs">Pronto imagen oficial</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs text-neutral-400 mb-2">
+                                <span>Energía</span>
+                                <span class="text-emerald-400 font-medium">Stock: 978</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-4">Cargador Inalámbrico 3 En 1</h3>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-neutral-800/60" onclick="event.stopPropagation()">
+                            <div>
+                                <span class="text-xs text-neutral-400 block">Precio</span>
+                                <span class="text-xl font-extrabold text-white">$9,00</span>
+                            </div>
+                            <button onclick="addToCart('Cargador Inalámbrico 3 En 1', 9.00)" class="bg-white text-black hover:bg-neutral-200 transition font-semibold px-4 py-2.5 rounded-xl text-sm flex items-center space-x-2">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>Agregar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div onclick="showProductDetail(3)" class="bg-cardDark border border-neutral-800 rounded-2xl overflow-hidden flex flex-col group hover:border-neutral-700 transition duration-300 cursor-pointer">
+                    <div class="relative bg-neutral-900 p-6 flex items-center justify-center h-64 overflow-hidden text-neutral-500">
+                        <span class="absolute top-4 left-4 bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20 z-10">
+                            ✅ Verificado
+                        </span>
+                        <div class="text-center">
+                            <i class="fa-solid fa-image text-3xl mb-2"></i>
+                            <p class="text-xs">Pronto imagen oficial</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs text-neutral-400 mb-2">
+                                <span>MagSafe</span>
+                                <span class="text-emerald-400 font-medium">Stock: 38</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-4">Cargador Inalámbrico Para Iphone</h3>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-neutral-800/60" onclick="event.stopPropagation()">
+                            <div>
+                                <span class="text-xs text-neutral-400 block">Precio</span>
+                                <span class="text-xl font-extrabold text-white">$30,00</span>
+                            </div>
+                            <button onclick="addToCart('Cargador Inalámbrico Para Iphone', 30.00)" class="bg-white text-black hover:bg-neutral-200 transition font-semibold px-4 py-2.5 rounded-xl text-sm flex items-center space-x-2">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>Agregar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- VISTA DETALLE DE PRODUCTO (Oculta por defecto) -->
+    <div id="detail-view" class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full hidden">
+        <!-- Botón para regresar al menú -->
+        <button onclick="showCatalog()" class="mb-8 inline-flex items-center space-x-2 text-sm text-neutral-400 hover:text-white bg-neutral-900 border border-neutral-800 px-4 py-2 rounded-xl transition">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Volver al menú</span>
+        </button>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 bg-cardDark border border-neutral-800 rounded-3xl p-6 sm:p-10">
+            <!-- Imagen Detalle -->
+            <div id="detail-image-container" class="bg-neutral-900 rounded-2xl flex items-center justify-center p-6 h-80 sm:h-96 overflow-hidden">
+                <!-- Se llena con JS -->
+            </div>
+
+            <!-- Información Detalle -->
+            <div class="flex flex-col justify-between">
+                <div>
+                    <span id="detail-badge" class="bg-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20 inline-block mb-4"></span>
+                    <h1 id="detail-title" class="text-2xl sm:text-3xl font-bold text-white mb-3"></h1>
+                    <div class="flex items-center space-x-4 mb-6 text-sm">
+                        <span id="detail-category" class="text-neutral-400"></span>
+                        <span class="text-neutral-600">•</span>
+                        <span id="detail-stock" class="text-emerald-400 font-medium"></span>
+                    </div>
+                    <div class="text-3xl font-extrabold text-white mb-6" id="detail-price"></div>
+                    
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-8">
+                        Diseño minimalista y tecnología de última generación para acompañar tu día a día. Calidad superior garantizada con envíos rápidos a todo el Ecuador y pago contra entrega seguro.
+                    </p>
+                </div>
+
+                <button id="detail-add-btn" class="w-full bg-white text-black hover:bg-neutral-200 transition font-bold py-4 rounded-xl text-base flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>Agregar al Carrito</span>
+                </button>
+            </div>
         </div>
-    </section>
-
-    <!-- CATÁLOGO DE PRODUCTOS -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- Producto 1 (Usa airpodsbyte.png) -->
-            <div class="bg-cardDark border border-neutral-800 rounded-2xl overflow-hidden flex flex-col group hover:border-neutral-700 transition duration-300">
-                <div class="relative bg-neutral-900 p-6 flex items-center justify-center h-64 overflow-hidden">
-                    <span class="absolute top-4 left-4 bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
-                        ⭐ Premium
-                    </span>
-                    <img src="airpodsbyte.png" alt="Audífonos Inalámbricos Premium" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg">
-                </div>
-                <div class="p-6 flex flex-col flex-grow justify-between">
-                    <div>
-                        <div class="flex justify-between items-center text-xs text-neutral-400 mb-2">
-                            <span>Audio</span>
-                            <span class="text-emerald-400 font-medium">Stock: 345</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-4">Audífonos Inalámbricos Premium</h3>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-neutral-800/60">
-                        <div>
-                            <span class="text-xs text-neutral-400 block">Precio</span>
-                            <span class="text-xl font-extrabold text-white">$28,00</span>
-                        </div>
-                        <button onclick="addToCart('Audífonos Inalámbricos Premium', 28.00)" class="bg-white text-black hover:bg-neutral-200 transition font-semibold px-4 py-2.5 rounded-xl text-sm flex items-center space-x-2">
-                            <i class="fa-solid fa-plus"></i>
-                            <span>Agregar</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Producto 2 (Usa airpodsbyte.png recortado para mostrar la sección central) -->
-            <div class="bg-cardDark border border-neutral-800 rounded-2xl overflow-hidden flex flex-col group hover:border-neutral-700 transition duration-300">
-                <div class="relative bg-neutral-900 p-6 flex items-center justify-center h-64 overflow-hidden">
-                    <span class="absolute top-4 left-4 bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
-                        ⭐ Premium
-                    </span>
-                    <img src="airpodsbyte.png" alt="Cargador Inalámbrico 3 En 1" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg object-top">
-                </div>
-                <div class="p-6 flex flex-col flex-grow justify-between">
-                    <div>
-                        <div class="flex justify-between items-center text-xs text-neutral-400 mb-2">
-                            <span>Energía</span>
-                            <span class="text-emerald-400 font-medium">Stock: 978</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-4">Cargador Inalámbrico 3 En 1</h3>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-neutral-800/60">
-                        <div>
-                            <span class="text-xs text-neutral-400 block">Precio</span>
-                            <span class="text-xl font-extrabold text-white">$9,00</span>
-                        </div>
-                        <button onclick="addToCart('Cargador Inalámbrico 3 En 1', 9.00)" class="bg-white text-black hover:bg-neutral-200 transition font-semibold px-4 py-2.5 rounded-xl text-sm flex items-center space-x-2">
-                            <i class="fa-solid fa-plus"></i>
-                            <span>Agregar</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Producto 3 (Usa airpodsbyte.png recortado para mostrar la sección derecha) -->
-            <div class="bg-cardDark border border-neutral-800 rounded-2xl overflow-hidden flex flex-col group hover:border-neutral-700 transition duration-300">
-                <div class="relative bg-neutral-900 p-6 flex items-center justify-center h-64 overflow-hidden">
-                    <span class="absolute top-4 left-4 bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
-                        ✅ Verificado
-                    </span>
-                    <img src="airpodsbyte.png" alt="Cargador Inalámbrico Para Iphone" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg object-bottom">
-                </div>
-                <div class="p-6 flex flex-col flex-grow justify-between">
-                    <div>
-                        <div class="flex justify-between items-center text-xs text-neutral-400 mb-2">
-                            <span>MagSafe</span>
-                            <span class="text-emerald-400 font-medium">Stock: 38</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-4">Cargador Inalámbrico Para Iphone</h3>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-neutral-800/60">
-                        <div>
-                            <span class="text-xs text-neutral-400 block">Precio</span>
-                            <span class="text-xl font-extrabold text-white">$30,00</span>
-                        </div>
-                        <button onclick="addToCart('Cargador Inalámbrico Para Iphone', 30.00)" class="bg-white text-black hover:bg-neutral-200 transition font-semibold px-4 py-2.5 rounded-xl text-sm flex items-center space-x-2">
-                            <i class="fa-solid fa-plus"></i>
-                            <span>Agregar</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </main>
+    </div>
 
     <!-- MODAL / CARRITO LATERAL -->
     <div id="cart-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex justify-end transition-opacity duration-300">
@@ -219,7 +267,73 @@
 
     <!-- SCRIPT DE FUNCIONALIDAD -->
     <script>
+        const productsData = {
+            1: {
+                name: "Audífonos Inalámbricos Premium",
+                price: 28.00,
+                category: "Audio",
+                stock: "Stock: 345",
+                badge: "⭐ Premium",
+                image: "airpodsbyte.png",
+                isRealImage: true
+            },
+            2: {
+                name: "Cargador Inalámbrico 3 En 1",
+                price: 9.00,
+                category: "Energía",
+                stock: "Stock: 978",
+                badge: "⭐ Premium",
+                image: "",
+                isRealImage: false
+            },
+            3: {
+                name: "Cargador Inalámbrico Para Iphone",
+                price: 30.00,
+                category: "MagSafe",
+                stock: "Stock: 38",
+                badge: "✅ Verificado",
+                image: "",
+                isRealImage: false
+            }
+        };
+
         let cart = [];
+
+        function showCatalog() {
+            document.getElementById('catalog-view').classList.remove('hidden');
+            document.getElementById('detail-view').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showProductDetail(id) {
+            const p = productsData[id];
+            
+            document.getElementById('detail-badge').textContent = p.badge;
+            document.getElementById('detail-title').textContent = p.name;
+            document.getElementById('detail-category').textContent = p.category;
+            document.getElementById('detail-stock').textContent = p.stock;
+            document.getElementById('detail-price').textContent = `$${p.price.toFixed(2)}`;
+
+            const imgContainer = document.getElementById('detail-image-container');
+            if (p.isRealImage) {
+                imgContainer.innerHTML = `<img src="${p.image}" alt="${p.name}" class="object-cover h-full w-full rounded-xl">`;
+            } else {
+                imgContainer.innerHTML = `
+                    <div class="text-center text-neutral-500">
+                        <i class="fa-solid fa-image text-4xl mb-2"></i>
+                        <p class="text-xs">Pronto imagen oficial</p>
+                    </div>
+                `;
+            }
+
+            document.getElementById('detail-add-btn').onclick = function() {
+                addToCart(p.name, p.price);
+            };
+
+            document.getElementById('catalog-view').classList.add('hidden');
+            document.getElementById('detail-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
         function toggleCart() {
             const modal = document.getElementById('cart-modal');
