@@ -72,13 +72,13 @@
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <!-- Producto 1 -->
+            <!-- Producto 1 (Usa airpodsbyte.png) -->
             <div class="bg-cardDark border border-neutral-800 rounded-2xl overflow-hidden flex flex-col group hover:border-neutral-700 transition duration-300">
                 <div class="relative bg-neutral-900 p-6 flex items-center justify-center h-64 overflow-hidden">
                     <span class="absolute top-4 left-4 bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
                         ⭐ Premium
                     </span>
-                    <img src="Captura de pantalla 2026-10-31 a la(s) 10.43.28 p. m..jpg" alt="Audífonos Inalámbricos Premium" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg">
+                    <img src="airpodsbyte.png" alt="Audífonos Inalámbricos Premium" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg">
                 </div>
                 <div class="p-6 flex flex-col flex-grow justify-between">
                     <div>
@@ -101,13 +101,13 @@
                 </div>
             </div>
 
-            <!-- Producto 2 -->
+            <!-- Producto 2 (Usa airpodsbyte.png recortado para mostrar la sección central) -->
             <div class="bg-cardDark border border-neutral-800 rounded-2xl overflow-hidden flex flex-col group hover:border-neutral-700 transition duration-300">
                 <div class="relative bg-neutral-900 p-6 flex items-center justify-center h-64 overflow-hidden">
                     <span class="absolute top-4 left-4 bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
                         ⭐ Premium
                     </span>
-                    <img src="Captura de pantalla 2026-10-31 a la(s) 10.43.28 p. m..jpg" alt="Cargador Inalámbrico 3 En 1" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg object-top">
+                    <img src="airpodsbyte.png" alt="Cargador Inalámbrico 3 En 1" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg object-top">
                 </div>
                 <div class="p-6 flex flex-col flex-grow justify-between">
                     <div>
@@ -130,13 +130,13 @@
                 </div>
             </div>
 
-            <!-- Producto 3 -->
+            <!-- Producto 3 (Usa airpodsbyte.png recortado para mostrar la sección derecha) -->
             <div class="bg-cardDark border border-neutral-800 rounded-2xl overflow-hidden flex flex-col group hover:border-neutral-700 transition duration-300">
                 <div class="relative bg-neutral-900 p-6 flex items-center justify-center h-64 overflow-hidden">
                     <span class="absolute top-4 left-4 bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
                         ✅ Verificado
                     </span>
-                    <img src="Captura de pantalla 2026-10-31 a la(s) 10.43.28 p. m..jpg" alt="Cargador Inalámbrico Para Iphone" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg object-bottom">
+                    <img src="airpodsbyte.png" alt="Cargador Inalámbrico Para Iphone" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg object-bottom">
                 </div>
                 <div class="p-6 flex flex-col flex-grow justify-between">
                     <div>
@@ -168,4 +168,158 @@
             
             <!-- Cabecera Carrito -->
             <div class="flex items-center justify-between pb-4 border-b border-neutral-800">
-                <h2 class="
+                <h2 class="text-xl font-bold text-white flex items-center space-x-2">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>Tu Carrito</span>
+                </h2>
+                <button onclick="toggleCart()" class="text-neutral-400 hover:text-white p-2">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Lista de Ítems -->
+            <div id="cart-items" class="flex-grow py-4 space-y-4 divide-y divide-neutral-800/50 overflow-y-auto">
+                <p class="text-neutral-500 text-center py-8">Tu carrito está vacío</p>
+            </div>
+
+            <!-- Resumen y Formulario -->
+            <div id="checkout-section" class="pt-4 border-t border-neutral-800 hidden">
+                <div class="flex justify-between items-center mb-4 text-lg font-bold text-white">
+                    <span>Total:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+
+                <!-- Formulario de Datos -->
+                <form id="order-form" onsubmit="sendToWhatsApp(event)" class="space-y-3">
+                    <h3 class="text-sm font-semibold text-neutral-300 pt-2">Datos de Envío</h3>
+                    <div>
+                        <input type="text" id="client-name" placeholder="Nombre y Apellido" required class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-white">
+                    </div>
+                    <div>
+                        <input type="tel" id="client-phone" placeholder="Número de Teléfono / WhatsApp" required class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-white">
+                    </div>
+                    <div>
+                        <textarea id="client-address" placeholder="Dirección exacta, Ciudad y Referencia" rows="2" required class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-white resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-4 rounded-xl transition duration-200 flex items-center justify-center space-x-2 mt-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Finalizar Pedido por WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-neutral-800 py-8 text-center text-xs text-neutral-500">
+        <p>&copy; 2026 byte.uio. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT DE FUNCIONALIDAD -->
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCartUI();
+            toggleCart();
+        }
+
+        function changeQuantity(index, delta) {
+            cart[index].quantity += delta;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartCounter = document.getElementById('cart-counter');
+            const checkoutSection = document.getElementById('checkout-section');
+            const cartTotal = document.getElementById('cart-total');
+
+            cartItemsContainer.innerHTML = '';
+
+            let totalCount = 0;
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-neutral-500 text-center py-8">Tu carrito está vacío</p>';
+                cartCounter.classList.add('hidden');
+                checkoutSection.classList.add('hidden');
+                return;
+            }
+
+            cartCounter.classList.remove('hidden');
+            checkoutSection.classList.remove('hidden');
+
+            cart.forEach((item, index) => {
+                totalCount += item.quantity;
+                totalPrice += item.price * item.quantity;
+
+                const itemElement = document.createElement('div');
+                itemElement.className = 'flex items-center justify-between py-3';
+                itemElement.innerHTML = `
+                    <div class="pr-2">
+                        <h4 class="text-sm font-semibold text-white">${item.name}</h4>
+                        <span class="text-xs text-neutral-400">$${item.price.toFixed(2)} c/u</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="flex items-center bg-neutral-900 border border-neutral-800 rounded-lg overflow-hidden">
+                            <button onclick="changeQuantity(${index}, -1)" class="px-2.5 py-1 text-neutral-400 hover:text-white">-</button>
+                            <span class="text-xs font-bold text-white px-2">${item.quantity}</span>
+                            <button onclick="changeQuantity(${index}, 1)" class="px-2.5 py-1 text-neutral-400 hover:text-white">+</button>
+                        </div>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(itemElement);
+            });
+
+            cartCounter.textContent = totalCount;
+            cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+        }
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('client-name').value;
+            const phone = document.getElementById('client-phone').value;
+            const address = document.getElementById('client-address').value;
+
+            let message = `🛒 *NUEVO PEDIDO - BYTE.UIO*\n\n`;
+            message += `👤 *Cliente:* ${name}\n`;
+            message += `📱 *Teléfono:* ${phone}\n`;
+            message += `📍 *Dirección:* ${address}\n\n`;
+            message += `📦 *PRODUCTOS:*\n`;
+
+            let totalPrice = 0;
+            cart.forEach(item => {
+                let subtotal = item.price * item.quantity;
+                totalPrice += subtotal;
+                message += `- ${item.quantity}x ${item.name} ($${subtotal.toFixed(2)})\n`;
+            });
+
+            message += `\n💰 *TOTAL A PAGAR: $${totalPrice.toFixed(2)}*\n`;
+            message += `_Pago seguro al recibir (Contra entrega)_`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappNumber = "593988725270";
+            
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
+    </script>
+</body>
+</html>
