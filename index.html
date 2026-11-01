@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>byte.uio | Diseño & Tecnología</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        cardDark: '#141414',
+                        accent: '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0a0a;
+            color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-100 min-h-screen flex flex-col selection:bg-white selection:text-black">
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="sticky top-0 z-40 bg-dark/85 backdrop-blur-md border-b border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo & Marca -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold text-xl tracking-tighter shadow-lg shadow-white/10">
+                    B
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white">byte.uio</span>
+                    <p class="text-xs text-neutral-400">Diseño & Tecnología</p>
+                </div>
+            </div>
+
+            <!-- Botón Carrito -->
+            <button onclick="toggleCart()" class="relative bg-neutral-900 border border-neutral-800 hover:border-neutral-600 transition p-3 rounded-full flex items-center justify-center text-white">
+                <i class="fa-solid fa-bag-shopping text-lg"></i>
+                <span id="cart-counter" class="absolute -top-1 -right-1 bg-white text-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- SECCIÓN HERO -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+            Tecnología para tu día a día
+        </h1>
+        <p class="text-neutral-400 max-w-xl mx-auto text-sm sm:text-base mb-6">
+            Lujo. Tranquilidad. Minimalismo. Envíos a todo Ecuador 🇪🇨 · Pagas seguro al recibir 💳
+        </p>
+        <div class="inline-flex items-center space-x-2 text-xs font-medium bg-neutral-900 border border-neutral-800 px-4 py-2 rounded-full text-neutral-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Stock inmediato disponible</span>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO DE PRODUCTOS -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Producto 1 -->
+            <div class="bg-cardDark border border-neutral-800 rounded-2xl overflow-hidden flex flex-col group hover:border-neutral-700 transition duration-300">
+                <div class="relative bg-neutral-900 p-6 flex items-center justify-center h-64 overflow-hidden">
+                    <span class="absolute top-4 left-4 bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
+                        ⭐ Premium
+                    </span>
+                    <img src="Captura de pantalla 2026-10-31 a la(s) 10.43.28 p. m..jpg" alt="Audífonos Inalámbricos Premium" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg">
+                </div>
+                <div class="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                        <div class="flex justify-between items-center text-xs text-neutral-400 mb-2">
+                            <span>Audio</span>
+                            <span class="text-emerald-400 font-medium">Stock: 345</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-4">Audífonos Inalámbricos Premium</h3>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-neutral-800/60">
+                        <div>
+                            <span class="text-xs text-neutral-400 block">Precio</span>
+                            <span class="text-xl font-extrabold text-white">$28,00</span>
+                        </div>
+                        <button onclick="addToCart('Audífonos Inalámbricos Premium', 28.00)" class="bg-white text-black hover:bg-neutral-200 transition font-semibold px-4 py-2.5 rounded-xl text-sm flex items-center space-x-2">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Agregar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="bg-cardDark border border-neutral-800 rounded-2xl overflow-hidden flex flex-col group hover:border-neutral-700 transition duration-300">
+                <div class="relative bg-neutral-900 p-6 flex items-center justify-center h-64 overflow-hidden">
+                    <span class="absolute top-4 left-4 bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
+                        ⭐ Premium
+                    </span>
+                    <img src="Captura de pantalla 2026-10-31 a la(s) 10.43.28 p. m..jpg" alt="Cargador Inalámbrico 3 En 1" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg object-top">
+                </div>
+                <div class="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                        <div class="flex justify-between items-center text-xs text-neutral-400 mb-2">
+                            <span>Energía</span>
+                            <span class="text-emerald-400 font-medium">Stock: 978</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-4">Cargador Inalámbrico 3 En 1</h3>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-neutral-800/60">
+                        <div>
+                            <span class="text-xs text-neutral-400 block">Precio</span>
+                            <span class="text-xl font-extrabold text-white">$9,00</span>
+                        </div>
+                        <button onclick="addToCart('Cargador Inalámbrico 3 En 1', 9.00)" class="bg-white text-black hover:bg-neutral-200 transition font-semibold px-4 py-2.5 rounded-xl text-sm flex items-center space-x-2">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Agregar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="bg-cardDark border border-neutral-800 rounded-2xl overflow-hidden flex flex-col group hover:border-neutral-700 transition duration-300">
+                <div class="relative bg-neutral-900 p-6 flex items-center justify-center h-64 overflow-hidden">
+                    <span class="absolute top-4 left-4 bg-white/10 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
+                        ✅ Verificado
+                    </span>
+                    <img src="Captura de pantalla 2026-10-31 a la(s) 10.43.28 p. m..jpg" alt="Cargador Inalámbrico Para Iphone" class="object-cover h-full w-full group-hover:scale-105 transition duration-500 rounded-lg object-bottom">
+                </div>
+                <div class="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                        <div class="flex justify-between items-center text-xs text-neutral-400 mb-2">
+                            <span>MagSafe</span>
+                            <span class="text-emerald-400 font-medium">Stock: 38</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-4">Cargador Inalámbrico Para Iphone</h3>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-neutral-800/60">
+                        <div>
+                            <span class="text-xs text-neutral-400 block">Precio</span>
+                            <span class="text-xl font-extrabold text-white">$30,00</span>
+                        </div>
+                        <button onclick="addToCart('Cargador Inalámbrico Para Iphone', 30.00)" class="bg-white text-black hover:bg-neutral-200 transition font-semibold px-4 py-2.5 rounded-xl text-sm flex items-center space-x-2">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Agregar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- MODAL / CARRITO LATERAL -->
+    <div id="cart-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex justify-end transition-opacity duration-300">
+        <div class="bg-cardDark w-full max-w-md h-full flex flex-col border-l border-neutral-800 p-6 overflow-y-auto">
+            
+            <!-- Cabecera Carrito -->
+            <div class="flex items-center justify-between pb-4 border-b border-neutral-800">
+                <h2 class="
